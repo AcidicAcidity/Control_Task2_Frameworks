@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}{{ visit.title }}{% endblock %}
+{% block content %}
+<h1>{{ visit.title }}</h1>
+<table class="data-table">
+  <tr><th>Тип услуги</th><td>{{ visit.service_type|upper }}</td></tr>
+  <tr><th>Дата и время</th><td>{{ visit.visit_date|date:"d.m.Y H:i" }}</td></tr>
+  <tr><th>Продолжительность</th><td>{{ visit.duration }} мин</td></tr>
+  <tr><th>Клиентов</th><td>{{ visit.clients }}</td></tr>
+  <tr><th>Статус</th><td>
+    {% if visit.status == "запланирован" %}Клиент записан
+    {% elif visit.status == "обслуживается" %}Идёт обслуживание
+    {% elif visit.status == "завершён" %}Услуга оказана
+    {% else %}{{ visit.status }}{% endif %}
+  </td></tr>
+  <tr><th>Кабинет</th><td>{{ visit.cabin_name|default:"Кабинет не указан" }}</td></tr>
+  <tr><th>Вместимость кабинета</th><td>{{ visit.cabin_capacity|default:"—" }}</td></tr>
+  <tr><th>Тип кабинета</th><td>{{ visit.cabin_profile|default:"—" }}</td></tr>
+</table>
+<p><a class="btn" href="{% url 'beauty:visit_list' %}">← Назад к списку</a></p>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Кабинеты{% endblock %}
+{% block content %}
+<h1>Кабинеты</h1>
+<ul class="cabinet-list">
+  {% for cabinet in cabinets %}
+    <li class="cabinet">
+      <h2>{{ cabinet.name }}</h2>
+      <p>Вместимость: <strong>{{ cabinet.capacity }}</strong> раб. мест</p>
+      <p>Тип кабинета: <span class="badge">{{ cabinet.cabin_profile }}</span></p>
+    </li>
+  {% empty %}
+    <li class="empty-message">Кабинеты пока не добавлены.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

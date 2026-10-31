@@ -1,0 +1,44 @@
+:root{--accent:#b5457a;--accent-dark:#8c2f5d;--bg:#fdf6f9;--text:#2b2430;--card:#fff;--muted:#7a6f80}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+.site-header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding:12px 32px;background:#fff;border-bottom:3px solid var(--accent)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--accent-dark);font-weight:700;font-size:1.3rem}
+.logo{width:48px;height:48px;border-radius:50%}
+.nav a{margin-left:18px;text-decoration:none;color:var(--text);font-weight:600;padding:6px 10px;border-radius:6px}
+.nav a:hover{background:var(--accent);color:#fff}
+.container{max-width:1000px;margin:28px auto;padding:0 20px;min-height:60vh}
+h1{color:var(--accent-dark);border-bottom:2px solid #eed3e0;padding-bottom:8px}
+.hero{background:linear-gradient(135deg,#f9dbe8,#fff);padding:36px;border-radius:16px}
+.counter{font-size:1.4rem}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+.btn{display:inline-block;background:var(--accent);color:#fff;border:0;padding:8px 18px;border-radius:8px;text-decoration:none;cursor:pointer;font-size:1rem}
+.btn:hover{background:var(--accent-dark)}
+.btn-outline{background:#fff;color:var(--accent);border:2px solid var(--accent)}
+.btn-small{padding:4px 12px;font-size:.9rem}
+.cabinet-list,.visit-list{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.cabinet,.visit-card{background:var(--card);border-radius:12px;padding:16px 20px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.cabinet h2{margin-top:0;color:var(--accent-dark)}
+.badge,.type{background:#f3d3e2;color:var(--accent-dark);padding:2px 10px;border-radius:12px;font-size:.85rem;font-weight:700}
+.visit-card{border-left:6px solid var(--muted)}
+.visit-card.status-zaplanirovan{border-left-color:#2a7fd4}
+.visit-card.status-obsluzivaetsia{border-left-color:#e69a1c}
+.visit-card.status-zaversen{border-left-color:#2e9a55}
+.visit-card header{display:flex;justify-content:space-between;align-items:start;gap:8px}
+.visit-card h3{margin:0 0 8px}
+.visit-card a{color:var(--accent-dark)}
+.visit-meta{list-style:none;padding:0;margin:0 0 10px}
+.visit-meta .status{font-weight:700}
+.details{margin-top:10px;padding:10px;background:#faf0f5;border-radius:8px;font-size:.92rem}
+.details[hidden]{display:none}
+.filter-form{display:flex;flex-wrap:wrap;gap:14px;align-items:end;background:#fff;padding:14px 18px;border-radius:12px;margin-bottom:16px}
+.filter-form label{display:flex;flex-direction:column;font-size:.9rem;color:var(--muted)}
+.filter-form input,.filter-form select{padding:7px 10px;border:1px solid #d8c5d0;border-radius:6px;font-size:1rem}
+.found{color:var(--muted)}
+.alert{background:#fff3cd;border:1px solid #f0d27a;padding:10px 14px;border-radius:8px}
+.empty-message{grid-column:1/-1;text-align:center;background:#fff;border:2px dashed #e0b8cc;padding:28px;border-radius:12px;color:var(--muted)}
+.empty-message.error{border-color:#d9534f}
+.data-table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08);margin:16px 0}
+.data-table th,.data-table td{padding:10px 16px;text-align:left;border-bottom:1px solid #f0e2ea}
+.data-table th{background:#f9e4ee;color:var(--accent-dark)}
+.stats td:nth-child(n+2){font-weight:700}
+.site-footer{text-align:center;padding:20px;color:var(--muted);font-size:.9rem}

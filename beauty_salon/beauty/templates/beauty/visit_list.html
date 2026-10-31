@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Визиты{% endblock %}
+{% block content %}
+<h1>Визиты</h1>
+
+<form method="get" class="filter-form">
+  <label>Мин. клиентов
+    <input type="number" name="clients" min="1" value="{{ clients }}" placeholder="например, 2">
+  </label>
+  <label>Сортировка
+    <select name="sort">
+      {% for key, label in sort_options %}
+        <option value="{{ key }}"{% if key == sort %} selected{% endif %}>{{ label }}</option>
+      {% endfor %}
+    </select>
+  </label>
+  <label>Показать не более
+    <input type="number" name="limit" min="1" max="100" value="{{ limit }}" placeholder="все">
+  </label>
+  <button type="submit" class="btn">Применить</button>
+  <a class="btn btn-outline" href="{% url 'beauty:visit_list' %}">Сбросить</a>
+</form>
+
+{% if input_error %}<p class="alert">{{ input_error }}</p>{% endif %}
+<p class="found">Найдено визитов: {{ visits|length }}</p>
+
+<div class="visit-list">
+  {% for visit in visits %}
+    {% include "beauty/includes/visit_card.html" %}
+  {% empty %}
+    <div class="empty-message">
+      <p>По вашему запросу визитов не найдено. Попробуйте уменьшить минимальное количество клиентов.</p>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

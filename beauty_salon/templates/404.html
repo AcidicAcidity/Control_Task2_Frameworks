@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Не найдено{% endblock %}
+{% block content %}
+<div class="empty-message">
+  <h1>404 — визит не найден</h1>
+  <p>Визита{% if slug %} «{{ slug }}»{% endif %} не существует или он был удалён.</p>
+  <p><a class="btn" href="{% url 'beauty:visit_list' %}">← К списку визитов</a></p>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% load static %}<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Салон красоты{% endblock %} — Салон красоты «Аврора»</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="{% url 'homepage:home' %}">
+      <img src="{% static 'img/logo.png' %}" alt="Логотип" class="logo">
+      <span>Салон красоты «Аврора»</span>
+    </a>
+    <nav class="nav">
+      <a href="{% url 'homepage:home' %}">Главная</a>
+      <a href="{% url 'cabinets:cabinet_list' %}">Кабинеты</a>
+      <a href="{% url 'beauty:visit_list' %}">Визиты</a>
+      <a href="{% url 'beauty:statistics' %}">Статистика</a>
+    </nav>
+  </header>
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="site-footer">Салон красоты «Аврора» · учебный проект Django + SQLite</footer>
+  <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

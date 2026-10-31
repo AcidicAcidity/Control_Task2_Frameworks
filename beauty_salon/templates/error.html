@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Ошибка{% endblock %}
+{% block content %}
+<div class="empty-message error">
+  <h1>Сервис временно недоступен</h1>
+  <p>Не удалось загрузить данные. Попробуйте обновить страницу чуть позже.</p>
+  <p><a class="btn" href="{% url 'homepage:home' %}">На главную</a></p>
+</div>
+{% endblock %}

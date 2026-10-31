@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Статистика{% endblock %}
+{% block content %}
+<h1>Статистика визитов</h1>
+<p>Всего визитов в базе: <strong>{{ total }}</strong>.
+   Показаны типы услуг, у которых не менее <strong>{{ min_count }}</strong> визитов (HAVING COUNT(*) &gt;= {{ min_count }}).</p>
+<form method="get" class="filter-form">
+  <label>Мин. визитов в группе
+    <input type="number" name="min" min="1" value="{{ min_count }}">
+  </label>
+  <button type="submit" class="btn">Показать</button>
+</form>
+<table class="data-table stats">
+  <thead><tr><th>Тип визита</th><th>Количество визитов</th><th>Всего клиентов</th></tr></thead>
+  <tbody>
+  {% for row in stats %}
+    <tr><td>{{ row.service_type|upper }}</td><td>{{ row.visits_count }}</td><td>{{ row.total_clients }}</td></tr>
+  {% empty %}
+    <tr><td colspan="3" class="empty-message">Нет типов услуг, удовлетворяющих условию.</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

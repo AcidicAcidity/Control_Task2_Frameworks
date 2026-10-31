@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Главная{% endblock %}
+{% block content %}
+<section class="hero">
+  <h1>Салон красоты «Аврора»</h1>
+  <p>Система записи клиентов: парикмахерская, маникюр и косметология. Просматривайте визиты, фильтруйте их и изучайте статистику.</p>
+  <p class="counter">Всего визитов: <strong>{{ visits|length }}</strong></p>
+  <div class="actions">
+    <a class="btn" href="{% url 'cabinets:cabinet_list' %}">Кабинеты</a>
+    <a class="btn" href="{% url 'beauty:visit_list' %}">Список визитов</a>
+    <a class="btn btn-outline" href="{% url 'beauty:statistics' %}">Статистика</a>
+  </div>
+</section>
+{% endblock %}

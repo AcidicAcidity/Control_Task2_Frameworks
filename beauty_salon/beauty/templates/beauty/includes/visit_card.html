@@ -1,0 +1,25 @@
+<article class="visit-card status-{{ visit.status|slugify }}">
+  <header>
+    <h3><a href="{% url 'beauty:visit_detail' slug=visit.slug %}">{{ visit.title|truncatechars:30 }}</a></h3>
+    <span class="type">{{ visit.service_type|upper }}</span>
+  </header>
+  <ul class="visit-meta">
+    <li>Дата: {{ visit.visit_date|date:"d.m.Y H:i" }}</li>
+    <li>Продолжительность: {{ visit.duration }} мин</li>
+    <li>Клиентов: {{ visit.clients }}</li>
+    <li>Кабинет: {{ visit.cabin_name|default:"Кабинет не указан" }}</li>
+    <li class="status">
+      {% if visit.status == "запланирован" %}Клиент записан
+      {% elif visit.status == "обслуживается" %}Идёт обслуживание
+      {% elif visit.status == "завершён" %}Услуга оказана
+      {% else %}{{ visit.status }}{% endif %}
+    </li>
+  </ul>
+  <button type="button" class="btn btn-small toggle-details" data-target="details-{{ visit.id }}">Подробнее</button>
+  <div id="details-{{ visit.id }}" class="details" hidden>
+    <p>Полное название: {{ visit.title }}</p>
+    <p>Профиль кабинета: {{ visit.cabin_profile|default:"—" }}</p>
+    <p>Вместимость кабинета: {{ visit.cabin_capacity|default:"—" }}</p>
+    <a href="{% url 'beauty:visit_detail' slug=visit.slug %}">Открыть страницу визита →</a>
+  </div>
+</article>
